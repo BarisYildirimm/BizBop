@@ -1,23 +1,21 @@
 import React from "react";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 const Post = ({ post }) => {
   return (
     <>
-      <Card className="my-3 p-3 rounded">
-        <Link to={`/posts/${post._id}`}>
-          <Card.Img src={post.image} variant="top" />
-        </Link>
-
+      <Card style={{ width: "20rem", margin: "10px" }}>
+        <Card.Img
+          variant="top"
+          src={post.image}
+          style={{ height: "15rem", padding: "3px" }}
+        />
         <Card.Body>
-          <Link to={`/post/${post._id}`}>
-            <Card.Title as="div">
-              <strong>{post.title}</strong>
-            </Card.Title>
-          </Link>
-
-          <Card.Text as="h3">${post.price}</Card.Text>
+          <Card.Title>{post.title}</Card.Title>
+          <Card.Text>{post.category}</Card.Text>
+          <Card.Text>{post.description}</Card.Text>
+          <Card.Text>{post.User}</Card.Text>
+          <Button variant="primary">Tıkla</Button>
         </Card.Body>
       </Card>
     </>
