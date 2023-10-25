@@ -9,6 +9,16 @@ export const getPosts = async (req, res) => {
   }
 };
 
+export const getPostsById = async (req, res) => {
+  try {
+    const post = await PostModel.findById(req.params.id);
+
+    res.status(200).json(post);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createPost = async (req, res) => {
   try {
     const post = await new PostModel({
@@ -20,6 +30,7 @@ export const createPost = async (req, res) => {
       user: req.user,
     });
     await post.save();
+    res.status(200).json(post);
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +49,7 @@ export const updatePost = async (req, res) => {
       post.user = req.user;
 
       await post.save();
-      res.status(200).json("Created Post");
+      res.status(200).json("Updated Post");
     } else {
       res.status(404).json("Post Not Found!");
     }

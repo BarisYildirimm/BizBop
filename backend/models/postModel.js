@@ -17,12 +17,12 @@ const postSchema = mongoose.Schema(
     },
     isPublic: {
       type: Boolean,
+      required: true,
       default: false,
     },
     category: {
       type: String,
       ref: "Category",
-      required: true,
     },
     user: {
       type: String,
