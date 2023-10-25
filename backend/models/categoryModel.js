@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const categorySchema = new Schema(
+const categorySchema = mongoose.Schema(
   {
     name: {
       type: "string",
