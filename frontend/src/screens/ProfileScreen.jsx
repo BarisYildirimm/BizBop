@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useProfileMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
+import { Link } from "react-router-dom";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -48,9 +49,17 @@ const ProfileScreen = () => {
           <h3>User Profile</h3>
         </Col>
         <Col className="text-end">
-          <Button className="my-2" onClick={""}>
+          <Link
+            style={{
+              background: "#e5e9ea",
+              padding: "10px",
+              textDecoration: "none",
+              borderRadius: "5px",
+            }}
+            to="/post/create"
+          >
             <FaPlus /> Create Post
-          </Button>
+          </Link>
         </Col>
       </Row>
       <Row>

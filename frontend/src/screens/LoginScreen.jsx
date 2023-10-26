@@ -16,7 +16,7 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   const [login] = useLoginMutation();
-
+  
   const { userInfo } = useSelector((state) => state.auth);
 
   const { search } = useLocation();
@@ -72,7 +72,7 @@ const LoginScreen = () => {
 
       <Row className="py-3">
         <Col>
-          New User? <Link to={""}>Register</Link>
+          New User? <Link to={"/register"}>Register</Link>
         </Col>
       </Row>
     </FormContainer>

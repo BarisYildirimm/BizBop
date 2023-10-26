@@ -1,7 +1,12 @@
 main {
   min-height: 80vh;
 }
-
+.ck-body-wrapper {
+  display: none !important;
+}
+.ck-editor__editable_inline {
+  height: 325px !important;
+}
 .rating span {
   margin: 0.1rem;
 }
