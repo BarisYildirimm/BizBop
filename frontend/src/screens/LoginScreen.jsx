@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toast";
 
 const LoginScreen = () => {
@@ -17,16 +17,25 @@ const LoginScreen = () => {
 
   const [login] = useLoginMutation();
 
+  const { userInfo } = useSelector((state) => state.auth);
+
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
 
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await login({ email, password }).unwrap();
-    dispatch(setCredentials({ ...res }));
-    navigate(redirect);
     try {
+      const res = await login({ email, password }).unwrap();
+      console.log(res);
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
     } catch (error) {
       toast.error(error);
     }
@@ -51,7 +60,7 @@ const LoginScreen = () => {
           <Form.Control
             type="password"
             placeholder="Enter password"
-            value="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
