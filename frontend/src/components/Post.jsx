@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Post = ({ post }) => {
   return (
@@ -15,7 +16,11 @@ const Post = ({ post }) => {
           <Card.Text>{post.category}</Card.Text>
           <Card.Text>{post.description}</Card.Text>
           <Card.Text>{post.User}</Card.Text>
-          <Button variant="primary">Tıkla</Button>
+          <LinkContainer to={`/post/${post._id}`}>
+            <Button variant="light" className="btn-sm">
+              Details
+            </Button>
+          </LinkContainer>
         </Card.Body>
       </Card>
     </>
