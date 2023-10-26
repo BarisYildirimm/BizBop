@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toast";
+
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [login] = useLoginMutation();
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get("redirect") || "/";
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const res = await login({ email, password }).unwrap();
+    dispatch(setCredentials({ ...res }));
+    navigate(redirect);
+    try {
+    } catch (error) {
+      toast.error(error);
+    }
+  };
   return (
     <FormContainer>
       <h1>Sign In</h1>
 
-      <Form onSubmit={""}>
+      <Form onSubmit={submitHandler}>
         <Form.Group className="my-2" controlId="email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
-            value={""}
-            onChange={(e) => ""}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
@@ -24,8 +51,8 @@ const LoginScreen = () => {
           <Form.Control
             type="password"
             placeholder="Enter password"
-            value={""}
-            onChange={(e) => ""}
+            value="password"
+            onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
