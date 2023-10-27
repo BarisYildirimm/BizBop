@@ -36,6 +36,7 @@ export const createPost = async (req, res) => {
     const post = await new PostModel({
       title: req.body.title,
       description: req.body.description,
+      image: req.body.image,
       likeCount: req.body.likeCount,
       isPublic: req.body.isPublic,
       category: req.body.category,

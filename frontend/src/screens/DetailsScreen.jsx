@@ -22,10 +22,7 @@ const DetailsScreen = () => {
           <section className="singlePage">
             <div className="container">
               <div className="left">
-                <img
-                  src="https://images.pexels.com/photos/13761717/pexels-photo-13761717.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
-                  alt=""
-                />
+                <img src={post.image} alt="" />
               </div>
               <div className="right">
                 <h1>{post.title}</h1>
