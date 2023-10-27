@@ -38,6 +38,14 @@ const postsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Post"],
     }),
+    updatePostToPublic: builder.mutation({
+      query: (data) => ({
+        url: `${POSTS_URL}/${data.postId}/public`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["Post"],
+    }),
     deletePost: builder.mutation({
       query: (postId) => ({
         url: `${POSTS_URL}/${postId}`,
@@ -54,5 +62,6 @@ export const {
   useGetMyPostQuery,
   useCreatePostMutation,
   useUpdatePostMutation,
+  useUpdatePostToPublicMutation,
   useDeletePostMutation,
 } = postsApiSlice;

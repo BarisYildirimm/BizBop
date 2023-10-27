@@ -47,7 +47,20 @@ export const createPost = async (req, res) => {
     console.log(error);
   }
 };
+export const updatePostToPublic = async (req, res) => {
+  const post = await PostModel.findById(req.body.postId);
 
+  if (post) {
+    post.isPublic = req.body.sw;
+
+    const updatedPost = await post.save();
+
+    res.json(updatedPost);
+  } else {
+    res.status(404);
+    throw new Error("Post not found");
+  }
+};
 export const updatePost = async (req, res) => {
   try {
     const post = await PostModel.findById(req.params.id);
@@ -58,7 +71,6 @@ export const updatePost = async (req, res) => {
       post.likeCount = req.body.likeCount;
       post.isPublic = req.body.isPublic;
       post.category = req.body.category;
-      post.user = req.user;
 
       await post.save();
       res.status(200).json("Updated Post");

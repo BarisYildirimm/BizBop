@@ -23,9 +23,13 @@ const HomeScreen = () => {
           <h1>Latest Products</h1>
           <Row>
             {posts.map((post) => (
-              <Col key={post._id} sm={12} md={6} lg={4} xl={3}>
-                <Post post={post} />
-              </Col>
+              <>
+                {post.isPublic && (
+                  <Col key={post._id} sm={12} md={6} lg={4} xl={3}>
+                    <Post post={post} />
+                  </Col>
+                )}
+              </>
             ))}
           </Row>
         </>
