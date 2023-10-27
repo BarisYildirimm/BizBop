@@ -69,7 +69,6 @@ export const updatePost = async (req, res) => {
       post.title = req.body.title;
       post.description = req.body.description;
       post.likeCount = req.body.likeCount;
-      post.isPublic = req.body.isPublic;
       post.category = req.body.category;
 
       await post.save();

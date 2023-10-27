@@ -24,6 +24,7 @@ import EditScreen from "./screens/EditScreen";
 import PostListScreen from "./screens/admin/PostListScreen";
 import CategoryListScreen from "./screens/admin/CategoryListScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
+import UserEditScreen from "./screens/admin/UserEditScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
       <Route path="/admin/postList" element={<PostListScreen />} />
       <Route path="/admin/categoryList" element={<CategoryListScreen />} />
       <Route path="/admin/userList" element={<UserListScreen />} />
+      <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
     </Route>
   )
 );
