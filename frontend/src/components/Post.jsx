@@ -14,8 +14,16 @@ const Post = ({ post }) => {
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
           <Card.Text>{post.category}</Card.Text>
-          <Card.Text>{post.description}</Card.Text>
-          <Card.Text>{post.User}</Card.Text>
+
+          <Card.Text>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.description,
+              }}
+            />
+          </Card.Text>
+          <Card.Text>{post.user.name}</Card.Text>
+          <Card.Text>{post.user.email}</Card.Text>
           <LinkContainer to={`/post/${post._id}`}>
             <Button variant="light" className="btn-sm">
               Details

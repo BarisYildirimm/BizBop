@@ -2,7 +2,7 @@ import PostModel from "../models/postModel.js";
 
 export const getPosts = async (req, res) => {
   try {
-    const posts = await PostModel.find({});
+    const posts = await PostModel.find({}).populate("user", "name email");
     res.status(200).json(posts);
   } catch (error) {
     console.log(error);
@@ -11,14 +11,27 @@ export const getPosts = async (req, res) => {
 
 export const getPostsById = async (req, res) => {
   try {
-    const post = await PostModel.findById(req.params.id);
+    const post = await PostModel.findById(req.params.id).populate(
+      "user",
+      "name email"
+    );
     res.status(200).json(post);
   } catch (error) {
     console.log(error);
   }
 };
 
+export const getMyPosts = async (req, res) => {
+  try {
+    const posts = await PostModel.find({ user: req.user._id });
+    res.status(200).json(posts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createPost = async (req, res) => {
+  console.log("Ekleme işlemine Geldi !");
   try {
     const post = await new PostModel({
       title: req.body.title,
@@ -59,6 +72,7 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
+    console.log("Sildi");
     const post = await PostModel.findById(req.params.id);
 
     if (post) {

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Table, Form, Button, Row, Col } from "react-bootstrap";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTimes, FaCheck, FaEdit, FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useProfileMutation } from "../slices/usersApiSlice";
+import { useDeletePostMutation, useGetMyPostQuery } from "../slices/postsSlice";
 import { setCredentials } from "../slices/authSlice";
 import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -14,7 +18,11 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
+
   const { userInfo } = useSelector((state) => state.auth);
+
+  const { data: posts, refetch, isLoading, error } = useGetMyPostQuery();
+  console.log(posts);
 
   useEffect(() => {
     setName(userInfo.name);
@@ -22,7 +30,7 @@ const ProfileScreen = () => {
   }, [userInfo.name, userInfo.email]);
 
   const [updateProfile] = useProfileMutation();
-
+  const [deletePost, { isLoading: loadingDelete }] = useDeletePostMutation();
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -39,6 +47,16 @@ const ProfileScreen = () => {
         toast.success("Profile updated successfully");
       } catch (error) {
         toast.error(error?.data?.message || error.error);
+      }
+    }
+  };
+  const deleteHandler = async (id) => {
+    if (window.confirm("Are you sure")) {
+      try {
+        await deletePost(id);
+        refetch();
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
       }
     }
   };
@@ -111,19 +129,76 @@ const ProfileScreen = () => {
           </Form>
         </Col>
         <Col md={9} style={{ marginTop: "15px" }}>
-          <Table striped hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Public</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </Table>
+          {loadingDelete && <Loader />}
+          {isLoading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="danger">
+              {error?.data?.message || error.error}
+            </Message>
+          ) : (
+            <Table striped hover responsive className="table-sm">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>DATE</th>
+                  <th>Like</th>
+                  <th>Public</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {posts.map((post) => (
+                  <tr>
+                    <td>{post.title}</td>
+                    <td>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.description,
+                        }}
+                      />
+                    </td>
+                    <td>{post.category}</td>
+                    <td>{post.createdAt.substring(0, 10)}</td>
+
+                    <td>{post.likeCount}</td>
+                    <td>
+                      {" "}
+                      {post.isPublic ? (
+                        <FaCheck style={{ color: "green" }} />
+                      ) : (
+                        <FaTimes style={{ color: "red" }} />
+                      )}
+                    </td>
+                    <td>
+                      <LinkContainer to={`/post/${post._id}/edit`}>
+                        <Button variant="light" className="btn-sm mx-2">
+                          <FaEdit />
+                        </Button>
+                      </LinkContainer>
+                      <Button
+                        variant="danger"
+                        className="btn-sm"
+                        onClick={() => deleteHandler(post._id)}
+                      >
+                        <FaTrash style={{ color: "white" }} />
+                      </Button>
+                    </td>
+                    <td>
+                      <LinkContainer to={`/post/${post._id}`}>
+                        <Button className="btn-sm" variant="light">
+                          Details
+                        </Button>
+                      </LinkContainer>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          )}
         </Col>
       </Row>
     </>

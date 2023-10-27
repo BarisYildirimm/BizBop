@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { Form, FormControl, InputGroup, Button } from "react-bootstrap";
+import { useCreatePostMutation } from "../slices/postsSlice";
+import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
+
+import { toast } from "react-toastify";
 
 const CreateScreen = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
 
   const items = ["Öğe 1", "Öğe 2", "Öğe 3", "Öğe 4"];
 
@@ -19,19 +26,22 @@ const CreateScreen = () => {
     setDescription(data);
   };
 
-  const submitHandler = (e) => {
+  const [createPost, { isLoading: loadingCreate }] = useCreatePostMutation();
+
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      console.log(title);
-      console.log("--------------------------------");
-      console.log(category);
-      console.log("--------------------------------");
-      console.log(description);
-      console.log("--------------------------------");
-    } catch (error) {}
+      //unwrap eklenmediği için hata veriyordu backende veri gitmiyordu
+      await createPost({ title, category, description }).unwrap();
+      toast.success("Post Created");
+      navigate(-1);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
   return (
     <>
+      {loadingCreate && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group className="my-2 center" controlId="name">
           <Form.Control

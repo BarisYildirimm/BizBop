@@ -30,8 +30,13 @@ const DetailsScreen = () => {
               <div className="right">
                 <h1>{post.title}</h1>
                 <p>{post.category}</p>
-                <p>{post.description}</p>
-                <p>Author: Sunil</p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: post.description,
+                  }}
+                />
+                <p>{post.user.name}</p>
+                <div>{post.user.email}</div>
               </div>
             </div>
           </section>

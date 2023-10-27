@@ -20,6 +20,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import CreateScreen from "./screens/CreateScreen";
 import DetailsScreen from "./screens/DetailsScreen";
+import EditScreen from "./screens/EditScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="/register" element={<RegisterScreen />} />
       <Route path="/profile" element={<ProfileScreen />} />
       <Route path="/post/create" element={<CreateScreen />} />
+      <Route path="/post/:id/edit" element={<EditScreen />} />
     </Route>
   )
 );

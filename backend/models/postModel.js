@@ -12,20 +12,17 @@ const postSchema = mongoose.Schema(
     },
     likeCount: {
       type: Number,
-      required: true,
       default: 0,
     },
     isPublic: {
       type: Boolean,
-      required: true,
       default: false,
     },
     category: {
       type: String,
-      ref: "Category",
     },
     user: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   },
