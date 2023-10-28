@@ -8,24 +8,24 @@ const Post = ({ post }) => {
     <>
       <Card
         style={{
-          width: "20rem",
+          minWidth: "16rem",
+          height: "98%",
           padding: "10px",
           margin: "10px",
           borderRadius: "10px",
         }}
       >
-        <Card.Img
-          src={post.image}
-          variant="top"
-          style={{
-            height: "20rem",
-            borderRadius: "10px",
-            
-          }}
-        />
+        <Link style={{ textDecoration: "none" }} to={`/post/${post._id}`}>
+          <Card.Img
+            src={post.image}
+            variant="top"
+            style={{
+              height: "15rem",
+              borderRadius: "10px",
+            }}
+          />
 
-        <Card.Body>
-          <Link style={{ textDecoration: "none" }} to={`/post/${post._id}`}>
+          <Card.Body>
             <Card.Title style={{ fontWeight: "bold" }}>{post.title}</Card.Title>
             <Card.Text>{post.category}</Card.Text>
 
@@ -38,25 +38,26 @@ const Post = ({ post }) => {
             </Card.Text>
             <Card.Text>{post.user.name}</Card.Text>
             <Card.Text>{post.user.email}</Card.Text>
-          </Link>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <LinkContainer to={`/post/${post._id}`}>
-              <Button variant="light" className="btn-sm">
-                <AiOutlineLike />
-              </Button>
-            </LinkContainer>
-            <LinkContainer to={`/post/${post._id}`}>
-              <Button variant="light" className="btn-sm">
-                Details
-              </Button>
-            </LinkContainer>
-          </div>
-        </Card.Body>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <LinkContainer to={`/post/${post._id}`}>
+                <Button variant="light" className="btn-sm">
+                  <AiOutlineLike />
+                </Button>
+              </LinkContainer>
+              <LinkContainer to={`/post/${post._id}`}>
+                <Button variant="light" className="btn-sm">
+                  Details
+                </Button>
+              </LinkContainer>
+            </div>
+          </Card.Body>
+        </Link>
       </Card>
     </>
   );

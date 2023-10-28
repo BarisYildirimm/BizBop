@@ -26,7 +26,7 @@ const HomeScreen = () => {
       ) : (
         <>
           <PostCarousel />
-          <h1>Latest Products</h1>
+          <h1>Latest Posts</h1>
           <Nav className="me-auto">
             {items.map((item) => (
               <Nav.Link onClick={() => handleSelect(item)}>{item}</Nav.Link>

@@ -153,10 +153,16 @@ const ProfileScreen = () => {
               <tbody>
                 {posts.map((post) => (
                   <tr>
-                    <td>{post.title}</td>
+                    <td>
+                      {" "}
+                      <div style={{ height: "100px", overflow: "scroll" }}>
+                        {" "}
+                        {post.title}
+                      </div>
+                    </td>
                     <td>
                       <div
-                        style={{ height: "80px", overflow: "hidden" }}
+                        style={{ height: "100px", overflow: "scroll" }}
                         dangerouslySetInnerHTML={{
                           __html: post.description,
                         }}

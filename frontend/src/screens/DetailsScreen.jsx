@@ -19,19 +19,29 @@ const DetailsScreen = () => {
         </Message>
       ) : (
         <>
-          <section style={{ margin: 0 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
             <div
               style={{
+                width: "70%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
+                boxShadow: "2px 5px 5px 5px rgba(0, 0, 0, 0.5)",
                 borderRadius: "25px",
                 padding: "50px",
               }}
             >
-              <h1 style={{ fontWeight: "bolder" }}>{post.title}</h1>
+              <h1 style={{ fontWeight: "bolder", textAlign: "center" }}>
+                {post.title}
+              </h1>
               <div>{post.category}</div>
               <div>{post.user.name.toUpperCase()}</div>
               <div>{post.createdAt.substring(0, 10)}</div>
@@ -40,7 +50,7 @@ const DetailsScreen = () => {
                 alt=""
                 style={{
                   height: "auto",
-                  width: "50%",
+                  width: "75%",
                   margin: "20px",
                   borderRadius: "15px",
                   imageRendering: "pixelated",
@@ -53,7 +63,7 @@ const DetailsScreen = () => {
                 }}
               />
             </div>
-          </section>
+          </div>
         </>
       )}
     </>

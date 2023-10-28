@@ -1,29 +1,9 @@
 main {
   min-height: 80vh;
 }
-/* .singlePage {
-  color: var(--color-text);
-  font-family: var(--font-family);
+html {
+  font-size: calc(0.3em + 1vw);
 }
-.singlePage .right {
-  margin-top: 30px;
-}
-.singlePage img {
-  width: 75%;
-  max-height: 85vh;
-  border-radius: 10px;
-}
-.singlePage h1 {
-  font-size: 30px;
-  font-weight: 500;
-}
-.singlePage p {
-  margin: 20px 0;
-  font-size: 18px;
-  line-height: 2;
-  text-transform: capitalize;
-} */
-
 .ck-body-wrapper {
   display: none !important;
 }
