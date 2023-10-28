@@ -8,7 +8,7 @@ const Post = ({ post }) => {
     <>
       <Card
         style={{
-          minWidth: "16rem",
+          minWidth: "15rem",
           height: "98%",
           padding: "10px",
           margin: "10px",

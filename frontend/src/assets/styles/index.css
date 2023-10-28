@@ -2,7 +2,7 @@ main {
   min-height: 80vh;
 }
 html {
-  font-size: calc(0.3em + 1vw);
+  font-size: calc(0.38em + 1vw);
 }
 .ck-body-wrapper {
   display: none !important;

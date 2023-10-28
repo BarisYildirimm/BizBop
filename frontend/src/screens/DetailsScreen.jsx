@@ -29,7 +29,7 @@ const DetailsScreen = () => {
           >
             <div
               style={{
-                width: "70%",
+                width: "90%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
