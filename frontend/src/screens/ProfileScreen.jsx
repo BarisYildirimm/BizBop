@@ -156,6 +156,7 @@ const ProfileScreen = () => {
                     <td>{post.title}</td>
                     <td>
                       <div
+                        style={{ height: "80px", overflow: "hidden" }}
                         dangerouslySetInnerHTML={{
                           __html: post.description,
                         }}

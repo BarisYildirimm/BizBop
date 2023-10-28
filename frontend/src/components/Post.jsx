@@ -6,23 +6,39 @@ import { Link } from "react-router-dom";
 const Post = ({ post }) => {
   return (
     <>
-      <Card style={{ width: "20rem", margin: "10px" }}>
-        <Link to={`/post/${post._id}`}>
-          <Card.Img src={post.image} variant="top" />
-        </Link>
-        <Card.Body>
-          <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.category}</Card.Text>
+      <Card
+        style={{
+          width: "20rem",
+          padding: "10px",
+          margin: "10px",
+          borderRadius: "10px",
+        }}
+      >
+        <Card.Img
+          src={post.image}
+          variant="top"
+          style={{
+            height: "20rem",
+            borderRadius: "10px",
+            
+          }}
+        />
 
-          <Card.Text>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.description,
-              }}
-            />
-          </Card.Text>
-          <Card.Text>{post.user.name}</Card.Text>
-          <Card.Text>{post.user.email}</Card.Text>
+        <Card.Body>
+          <Link style={{ textDecoration: "none" }} to={`/post/${post._id}`}>
+            <Card.Title style={{ fontWeight: "bold" }}>{post.title}</Card.Title>
+            <Card.Text>{post.category}</Card.Text>
+
+            <Card.Text style={{ height: "100px", overflow: "scroll" }}>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: post.description,
+                }}
+              />
+            </Card.Text>
+            <Card.Text>{post.user.name}</Card.Text>
+            <Card.Text>{post.user.email}</Card.Text>
+          </Link>
           <div
             style={{
               display: "flex",

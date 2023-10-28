@@ -19,22 +19,39 @@ const DetailsScreen = () => {
         </Message>
       ) : (
         <>
-          <section className="singlePage">
-            <div className="container">
-              <div className="left">
-                <img src={post.image} alt="" />
-              </div>
-              <div className="right">
-                <h1>{post.title}</h1>
-                <p>{post.category}</p>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: post.description,
-                  }}
-                />
-                <p>{post.user.name}</p>
-                <div>{post.user.email}</div>
-              </div>
+          <section style={{ margin: 0 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
+                borderRadius: "25px",
+                padding: "50px",
+              }}
+            >
+              <h1 style={{ fontWeight: "bolder" }}>{post.title}</h1>
+              <div>{post.category}</div>
+              <div>{post.user.name.toUpperCase()}</div>
+              <div>{post.createdAt.substring(0, 10)}</div>
+              <img
+                src={post.image}
+                alt=""
+                style={{
+                  height: "auto",
+                  width: "50%",
+                  margin: "20px",
+                  borderRadius: "15px",
+                  imageRendering: "pixelated",
+                }}
+              />
+
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.description,
+                }}
+              />
             </div>
           </section>
         </>

@@ -35,7 +35,7 @@ const EditScreen = () => {
     }
   }, [post]);
 
-  const items = ["Öğe 1", "Öğe 2", "Öğe 3", "Öğe 4"];
+  const items = ["Teknoloji", "Gezi", "Kitap", "Project"];
 
   const handleSelect = (event) => {
     setCategory(event.target.value);

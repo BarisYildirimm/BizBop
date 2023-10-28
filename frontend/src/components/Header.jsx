@@ -1,5 +1,11 @@
-import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  FormControl,
+} from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,7 +15,6 @@ import { useLogoutMutation } from "../slices/usersApiSlice";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,7 +41,15 @@ const Header = () => {
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            style={{ textAlign: "center" }}
+          ></Navbar.Collapse>
+
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            style={{ textAlign: "center" }}
+          >
             <Nav className="ms-auto">
               {userInfo ? (
                 <>
