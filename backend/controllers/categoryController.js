@@ -2,10 +2,12 @@ import CategoryModel from "../models/categoryModel.js";
 
 export const getCategory = async (req, res) => {
   try {
+    console.log("Geldi mi");
     const data = await CategoryModel.find({});
-    res.json(data);
+    res.status(200).json(data);
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -18,7 +20,8 @@ export const createCategory = async (req, res) => {
     await newCategory.save();
     res.status(200).json("Created Category");
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -34,7 +37,8 @@ export const updateCategory = async (req, res) => {
       console.log("Category Not Found!");
     }
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -49,6 +53,7 @@ export const deleteCategory = async (req, res) => {
       res.status(404).json("Not Found");
     }
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };

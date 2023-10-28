@@ -52,9 +52,6 @@ export const registerUser = async (req, res) => {
   }
 };
 export const updateUserProfile = async (req, res) => {
-  console.log("----------------------------");
-  console.log("USERRRR", req.userInfo);
-  console.log("----------------------------");
   const user = await User.findById(req.user._id);
 
   if (user) {

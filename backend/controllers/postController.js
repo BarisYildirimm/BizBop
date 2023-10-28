@@ -5,7 +5,8 @@ export const getPosts = async (req, res) => {
     const posts = await PostModel.find({}).populate("user", "name email");
     res.status(200).json(posts);
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -17,7 +18,8 @@ export const getPostsById = async (req, res) => {
     );
     res.status(200).json(post);
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -26,7 +28,8 @@ export const getMyPosts = async (req, res) => {
     const posts = await PostModel.find({ user: req.user._id });
     res.status(200).json(posts);
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -45,7 +48,8 @@ export const createPost = async (req, res) => {
     await post.save();
     res.status(200).json(post);
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 export const updatePostToPublic = async (req, res) => {
@@ -78,7 +82,8 @@ export const updatePost = async (req, res) => {
       res.status(404).json("Post Not Found!");
     }
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };
 
@@ -92,6 +97,7 @@ export const deletePost = async (req, res) => {
       res.status(200).json("Post Deleted successfully!");
     }
   } catch (error) {
-    console.log(error);
+    res.status(404);
+    throw new Error("Resource not found");
   }
 };

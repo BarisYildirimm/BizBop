@@ -13,6 +13,8 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
+mongoDbConnection();
+
 const app = express();
 
 app.use(express.json());
@@ -33,8 +35,7 @@ app.use("/", (req, res) => {
   res.send("SA");
 });
 
-// app.use(notFound());
-// app.use(errorHandler());
+app.use(notFound);
+app.use(errorHandler);
 
-mongoDbConnection();
 app.listen(5000);
