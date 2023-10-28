@@ -34,9 +34,9 @@ const DetailsScreen = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                boxShadow: "2px 5px 5px 5px rgba(0, 0, 0, 0.5)",
+                boxShadow: "1px 1px 9px 5px rgba(0, 0, 0, 0.5)",
                 borderRadius: "25px",
-                padding: "50px",
+                padding: "25px",
               }}
             >
               <h1 style={{ fontWeight: "bolder", textAlign: "center" }}>
