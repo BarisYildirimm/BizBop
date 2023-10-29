@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../slices/authSlice";
 import { useLogoutMutation } from "../slices/usersApiSlice";
-import Logo from "../assets/peace.png";
+import Logo from "../assets/letter-b.png";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -31,8 +31,22 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={Logo} alt="Logo" style={{ marginRight: "10px" }} />
-              BizBop
+              <img
+                src={Logo}
+                alt="Logo"
+                style={{ marginRight: "10px", margin: "0" }}
+              />
+              <span
+                style={{
+                  fontStyle: "italic",
+                  position: "absolute",
+                  marginTop: "23px",
+                  color: "#677e96",
+                  textShadow: "1px 1px 0 white",
+                }}
+              >
+                izbop
+              </span>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
