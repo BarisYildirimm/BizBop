@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  FormControl,
-} from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../slices/authSlice";
 import { useLogoutMutation } from "../slices/usersApiSlice";
+import Logo from "../assets/peace.png";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -36,8 +31,8 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={""} alt="" />
-              Logo
+              <img src={Logo} alt="Logo" style={{ marginRight: "10px" }} />
+              BizBop
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
