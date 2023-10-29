@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetPostDetailsQuery } from "../slices/postsSlice";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import DarkMode from "../components/DarkMode";
 
 const DetailsScreen = () => {
   const { id: postId } = useParams();
@@ -28,6 +29,7 @@ const DetailsScreen = () => {
             }}
           >
             <div
+              className="detailsContainer"
               style={{
                 width: "90%",
                 display: "flex",
@@ -39,6 +41,7 @@ const DetailsScreen = () => {
                 padding: "25px",
               }}
             >
+              <DarkMode />
               <h1 style={{ fontWeight: "bolder", textAlign: "center" }}>
                 {post.title}
               </h1>

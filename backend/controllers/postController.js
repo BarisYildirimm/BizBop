@@ -52,6 +52,7 @@ export const createPost = async (req, res) => {
     throw new Error("Resource not found");
   }
 };
+
 export const updatePostToPublic = async (req, res) => {
   const post = await PostModel.findById(req.body.postId);
 
@@ -66,6 +67,7 @@ export const updatePostToPublic = async (req, res) => {
     throw new Error("Post not found");
   }
 };
+
 export const updatePost = async (req, res) => {
   try {
     const post = await PostModel.findById(req.params.id);
