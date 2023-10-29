@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Carousel, Image } from "react-bootstrap";
 import Message from "./Message";
-import { useGetPostsQuery } from "../slices/postsSlice";
+import { useGetTopPostsQuery } from "../slices/postsSlice";
 
 const PostCarousel = () => {
-  const { data: posts, isLoading, error } = useGetPostsQuery();
+  const { data: posts, isLoading, error } = useGetTopPostsQuery();
 
   return isLoading ? null : error ? (
     <Message variant="danger">{error?.data?.message || error.error}</Message>

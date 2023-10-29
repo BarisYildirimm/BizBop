@@ -137,3 +137,4 @@ export const updateUser = async (req, res) => {
     throw new Error("User not found");
   }
 };
+

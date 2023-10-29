@@ -61,6 +61,12 @@ const postsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Post"],
     }),
+    getTopPosts: builder.query({
+      query: () => ({
+        url: `${POSTS_URL}/top`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
     deletePost: builder.mutation({
       query: (postId) => ({
         url: `${POSTS_URL}/${postId}`,
@@ -80,5 +86,6 @@ export const {
   useUpdatePostToPublicMutation,
   useUploadProductImageMutation,
   useCreateReviewMutation,
+  useGetTopPostsQuery,
   useDeletePostMutation,
 } = postsApiSlice;

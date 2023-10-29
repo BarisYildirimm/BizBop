@@ -8,6 +8,7 @@ import {
   getMyPosts,
   updatePostToPublic,
   createPostReview,
+  getTopPosts,
 } from "../controllers/postController.js";
 
 import { admin, protect } from "../middleware/authMiddleware.js";
@@ -15,6 +16,7 @@ import { admin, protect } from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 router.get("/", getPosts);
+router.get("/top", getTopPosts);
 router.get("/mine", protect, getMyPosts);
 router.put("/:id/public", updatePostToPublic);
 router.put("/:id", protect, updatePost);

@@ -141,3 +141,8 @@ export const createPostReview = async (req, res) => {
     throw new Error("Product not found");
   }
 };
+
+export const getTopPosts = async (req, res) => {
+  const posts = await PostModel.find({}).sort({ rating: -1 }).limit(3);
+  res.status(200).json(posts);
+};
