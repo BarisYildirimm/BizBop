@@ -103,3 +103,41 @@ export const deletePost = async (req, res) => {
     throw new Error("Resource not found");
   }
 };
+
+export const createPostReview = async (req, res) => {
+  const { rating, comment } = req.body;
+
+  const post = await PostModel.findById(req.params.id);
+
+  if (post) {
+    const alreadyReviewed = post.reviews.find(
+      (r) => r.user.toString() === req.user._id.toString()
+    );
+
+    if (alreadyReviewed) {
+      res.status(400);
+      throw new Error("Post already reviewed");
+    }
+
+    const review = {
+      name: req.user.name,
+      rating: Number(rating),
+      comment,
+      user: req.user._id,
+    };
+
+    post.reviews.push(review);
+
+    post.numReviews = post.reviews.length;
+
+    post.rating =
+      post.reviews.reduce((acc, item) => item.rating + acc, 0) /
+      post.reviews.length;
+
+    await post.save();
+    res.status(201).json({ message: "Review Added" });
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+};

@@ -7,6 +7,7 @@ import {
   deletePost,
   getMyPosts,
   updatePostToPublic,
+  createPostReview,
 } from "../controllers/postController.js";
 
 import { admin, protect } from "../middleware/authMiddleware.js";
@@ -22,5 +23,7 @@ router.get("/:id", getPostsById);
 router.post("/", protect, createPost);
 
 router.delete("/:id", deletePost);
+
+router.post("/:id/reviews", protect, createPostReview);
 
 export default router;

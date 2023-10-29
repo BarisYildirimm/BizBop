@@ -53,6 +53,14 @@ const postsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    createReview: builder.mutation({
+      query: (data) => ({
+        url: `${POSTS_URL}/${data.postId}/reviews`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Post"],
+    }),
     deletePost: builder.mutation({
       query: (postId) => ({
         url: `${POSTS_URL}/${postId}`,
@@ -71,5 +79,6 @@ export const {
   useUpdatePostMutation,
   useUpdatePostToPublicMutation,
   useUploadProductImageMutation,
+  useCreateReviewMutation,
   useDeletePostMutation,
 } = postsApiSlice;
