@@ -1,7 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import { AiOutlineLike } from "react-icons/ai";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const Post = ({ post }) => {
   return (
@@ -45,18 +43,7 @@ const Post = ({ post }) => {
                 display: "flex",
                 justifyContent: "space-between",
               }}
-            >
-              <LinkContainer to={`/post/${post._id}`}>
-                <Button variant="light" className="btn-sm">
-                  <AiOutlineLike />
-                </Button>
-              </LinkContainer>
-              <LinkContainer to={`/post/${post._id}`}>
-                <Button variant="light" className="btn-sm">
-                  Details
-                </Button>
-              </LinkContainer>
-            </div>
+            ></div>
           </Card.Body>
         </Link>
       </Card>
