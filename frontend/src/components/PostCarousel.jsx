@@ -13,7 +13,12 @@ const PostCarousel = () => {
       {posts.map((post) => (
         <Carousel.Item key={post._id}>
           <Link to={`/post/${post._id}`}>
-            <Image src={post.image} alt={post.name} fluid />
+            <Image
+              src={post.image}
+              alt={post.name}
+              fluid
+              style={{ height: "25rem", width: "100%", objectFit: "cover" }}
+            />
             <Carousel.Caption className="carousel-caption">
               <h2 className="text-white text-right">
                 {post.name} ({post.category})

@@ -90,10 +90,12 @@ const DetailsScreen = () => {
                 src={post.image}
                 alt=""
                 style={{
-                  height: "auto",
+                  height: "30rem",
                   width: "75%",
                   margin: "20px",
                   borderRadius: "15px",
+                  objectFit: "contain",
+
                   imageRendering: "pixelated",
                 }}
               />
