@@ -3,17 +3,17 @@
   "name": "BizBop",
   "icons": [
     {
-      "src": "peace.png",
+      "src": "letter-b.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.jpg",
+      "src": "letter-b.png",
       "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.jpg",
+      "src": "letter-b.png",
       "type": "image/jpg",
       "sizes": "512x512"
     }
