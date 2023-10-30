@@ -21,6 +21,7 @@ const Post = ({ post }) => {
             variant="top"
             style={{
               height: "15rem",
+              objectFit: "cover",
               borderRadius: "10px",
             }}
           />
