@@ -21,7 +21,7 @@ const CreateScreen = () => {
   const [uploadProductImage, { isLoading: loadingUpload }] =
     useUploadProductImageMutation();
 
-  const items = ["Teknoloji", "Gezi", "Kitap", "Project"];
+  const items = ["Technology", "Travel", "Books", "Project"];
 
   const handleSelect = (event) => {
     setCategory(event.target.value);

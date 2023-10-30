@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const [category, setCategory] = useState("");
   // isloading ve is Error eklenmez ise hata düşüyor ....
   const { data: posts, isLoading, error } = useGetPostsQuery();
-  const items = ["Teknoloji", "Gezi", "Kitap", "Project"];
+  const items = ["Technology", "Travel", "Books", "Project"];
   const handleSelect = (item) => {
     setCategory(item);
   };
