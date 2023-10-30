@@ -9,12 +9,12 @@
     },
     {
       "src": "letter-b.png",
-      "type": "image/jpg",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
       "src": "letter-b.png",
-      "type": "image/jpg",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
