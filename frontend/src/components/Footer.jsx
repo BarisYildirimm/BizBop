@@ -9,7 +9,15 @@ const Footer = () => {
         <Row>
           <Col className="text-center py-3">
             <p>
-              Copyright &copy; {currentYear} Baris Yildirim. All Rights Reserved
+              Copyright &copy; {currentYear}{" "}
+              <a
+                href="https://www.linkedin.com/in/barisyildirimm/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Baris Yildirim
+              </a>
+              . All Rights Reserved
             </p>
           </Col>
         </Row>
