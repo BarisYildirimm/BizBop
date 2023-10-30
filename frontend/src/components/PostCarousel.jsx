@@ -9,25 +9,37 @@ const PostCarousel = () => {
   return isLoading ? null : error ? (
     <Message variant="danger">{error?.data?.message || error.error}</Message>
   ) : (
-    <Carousel pause="hover" className="bg-primary mb-4">
+    <>
       {posts.map((post) => (
-        <Carousel.Item key={post._id}>
-          <Link to={`/post/${post._id}`}>
-            <Image
-              src={post.image}
-              alt={post.name}
-              fluid
-              style={{ height: "25rem", width: "100%", objectFit: "cover" }}
-            />
-            <Carousel.Caption className="carousel-caption">
-              <h2 className="text-white text-right">
-                {post.name} ({post.category})
-              </h2>
-            </Carousel.Caption>
-          </Link>
-        </Carousel.Item>
+        <>
+          {post.isPublic && (
+            <>
+              <Carousel pause="hover" className="bg-primary mb-4">
+                <Carousel.Item key={post._id}>
+                  <Link to={`/post/${post._id}`}>
+                    <Image
+                      src={post.image}
+                      alt={post.name}
+                      fluid
+                      style={{
+                        height: "25rem",
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <Carousel.Caption className="carousel-caption">
+                      <h2 className="text-white text-right">
+                        {post.name} ({post.category})
+                      </h2>
+                    </Carousel.Caption>
+                  </Link>
+                </Carousel.Item>
+              </Carousel>
+            </>
+          )}
+        </>
       ))}
-    </Carousel>
+    </>
   );
 };
 
