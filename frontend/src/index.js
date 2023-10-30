@@ -25,6 +25,7 @@ import PostListScreen from "./screens/admin/PostListScreen";
 import CategoryListScreen from "./screens/admin/CategoryListScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
 import UserEditScreen from "./screens/admin/UserEditScreen";
+import AdminRoute from "./components/AdminRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,10 +38,12 @@ const router = createBrowserRouter(
       <Route path="/post/create" element={<CreateScreen />} />
       <Route path="/post/:id/edit" element={<EditScreen />} />
 
-      <Route path="/admin/postList" element={<PostListScreen />} />
-      <Route path="/admin/categoryList" element={<CategoryListScreen />} />
-      <Route path="/admin/userList" element={<UserListScreen />} />
-      <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+      <Route path="" element={<AdminRoute />}>
+        <Route path="/admin/postList" element={<PostListScreen />} />
+        <Route path="/admin/categoryList" element={<CategoryListScreen />} />
+        <Route path="/admin/userList" element={<UserListScreen />} />
+        <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+      </Route>
     </Route>
   )
 );
