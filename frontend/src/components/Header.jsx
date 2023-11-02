@@ -27,7 +27,12 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar
+        style={{ backgroundColor: "#262626", color: "white" }}
+        variant="dark"
+        expand="lg"
+        collapseOnSelect
+      >
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
@@ -41,8 +46,8 @@ const Header = () => {
                   fontStyle: "italic",
                   position: "absolute",
                   marginTop: "23px",
-                  color: "#677e96",
-                  textShadow: "1px 1px 0 white",
+                  color: "#262626",
+                  textShadow: "1px 1px 1px white",
                 }}
               >
                 izbop
