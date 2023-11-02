@@ -11,12 +11,15 @@ const PostCarousel = () => {
   ) : (
     <Carousel pause="hover" className="bg-primary mb-4">
       {posts.map((post) => (
-        <Carousel.Item key={post._id}>
+        <Carousel.Item
+          key={post._id}
+          style={{ height: "25rem", width: "100%", objectFit: "cover" }}
+        >
           <Link to={`/post/${post._id}`}>
             <Image src={post.image} alt={post.name} fluid />
             <Carousel.Caption className="carousel-caption">
               <h2 className="text-white text-right">
-                {post.name} (${post.price})
+                {post.name} ({post.category})
               </h2>
             </Carousel.Caption>
           </Link>
