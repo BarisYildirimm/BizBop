@@ -39,7 +39,7 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="Logo"
-                style={{ marginRight: "10px", margin: "0" }}
+                style={{ marginRight: "10px", margin: "0", objectFit: "cover" }}
               />
               <span
                 style={{

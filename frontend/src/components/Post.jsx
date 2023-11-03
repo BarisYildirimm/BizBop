@@ -36,7 +36,6 @@ const Post = ({ post }) => {
               />
             </Card.Text>
             <Card.Text>{post.user.name}</Card.Text>
-            <Card.Text>{post.user.email}</Card.Text>
 
             <div
               style={{
