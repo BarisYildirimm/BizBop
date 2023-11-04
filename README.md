@@ -1,0 +1,12 @@
+# BizBop
+![1](https://github.com/BarisYildirimm/BizBop/assets/72316936/9c6ae609-0b5a-41f8-b86d-f2bc7bb5052f)
+![2](https://github.com/BarisYildirimm/BizBop/assets/72316936/5e91ceef-0eca-456f-8e67-e2767b9e3ffd)
+![3](https://github.com/BarisYildirimm/BizBop/assets/72316936/9e622bf5-7021-4338-9f80-d97245654c90)
+![4](https://github.com/BarisYildirimm/BizBop/assets/72316936/38c4f3ab-9f0b-4d79-b384-adbdfb0bec1a)
+![5](https://github.com/BarisYildirimm/BizBop/assets/72316936/386d05c6-1fc6-470a-9995-69d60d18e669)
+![6](https://github.com/BarisYildirimm/BizBop/assets/72316936/b94ebaf2-0ab4-4ca5-9d65-0d204fbe1dba)
+![7](https://github.com/BarisYildirimm/BizBop/assets/72316936/655b53d3-54de-4e32-9c11-7477da8f8d1d)
+![8](https://github.com/BarisYildirimm/BizBop/assets/72316936/2ea28a4d-aa7e-4241-a1d3-7ee3abd64b0b)
+![9](https://github.com/BarisYildirimm/BizBop/assets/72316936/171b5baf-69fe-45e0-b7f6-72e2a56faccb)
+![10](https://github.com/BarisYildirimm/BizBop/assets/72316936/2a820421-ac69-41fc-9c1c-45e9e082892e)
+![11](https://github.com/BarisYildirimm/BizBop/assets/72316936/6a0f6014-0b7d-420f-9a48-a151bde8a705)
