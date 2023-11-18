@@ -7,6 +7,6 @@
 ![6](ss/6.png)
 ![7](ss/7.png)
 ![8](ss/8.png)
-![bizbop](ss/bizbop.png)
+![bizbop](ss/9.png)
 ![10](ss/10.png)
 ![11](ss/11.png)
